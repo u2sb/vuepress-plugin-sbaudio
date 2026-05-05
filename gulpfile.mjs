@@ -17,12 +17,13 @@ const version = execaCommandSync("git describe --tags", {
   all: true,
 }).stdout;
 
+const cleanOut = () => rm(outputDir);
+
 const tsc = () => {
   const tsProject = ts.createProject("tsconfig.json");
   return tsProject.src().pipe(tsProject()).pipe(dest(outputDir));
 };
 
-const cleanOut = () => rm(outputDir);
 const cpAssets = () =>
   Promise.all(
     assets.map((e) => src(resolve(inputDir, e)).pipe(dest(outputDir)))

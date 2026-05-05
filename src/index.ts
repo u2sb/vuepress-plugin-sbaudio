@@ -20,15 +20,12 @@ const MetingPlugins = (options: MetingPluginsOptions = {}): Plugin => {
       if (app.options.bundler.name === "@vuepress/bundler-vite") {
         bundlerOptions.viteOptions ??= {};
         // @ts-ignore
-        bundlerOptions.viteOptions.optimizeDeps ??= {};
+        bundlerOptions.viteOptions.include ??= [];
         // @ts-ignore
-        bundlerOptions.viteOptions.optimizeDeps.include ??= [];
-        // @ts-ignore
-        bundlerOptions.viteOptions.optimizeDeps.include = [
+        bundlerOptions.viteOptions.include = [
           // @ts-ignore
-          ...bundlerOptions.viteOptions.optimizeDeps.include,
-          "aplayer/dist/APlayer.min.js",
-          "hls.js/dist/hls.min.js",
+          ...bundlerOptions.viteOptions.include,
+          "aplayer/dist/APlayer.min.js"
         ];
       }
     },
