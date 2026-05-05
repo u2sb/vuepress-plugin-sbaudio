@@ -1,5 +1,5 @@
 import { PropType, defineComponent, h } from "vue";
-import APlayer from "../Meting/meting.js";
+import Meting from "../Meting/meting.js";
 
 import type { VNode } from "vue";
 import type { APlayerComponentsOptions } from "../../options.js";
@@ -72,6 +72,6 @@ export default defineComponent({
       ...props,
     } as APlayerComponentsOptions;
 
-    return (): VNode => h(APlayer, { src });
+    return (): VNode => h(Meting, { src });
   },
 });
